@@ -22,6 +22,11 @@ pipeline {
                 }
             }
         }
+        stage('Confirm Deploy') {
+            steps{
+                input(message: 'Deploy to stage', ok: 'yes')
+            }
+        }
         stage('Deliver') { 
             steps {
                 sh './jenkins/scripts/deliver.sh' 
